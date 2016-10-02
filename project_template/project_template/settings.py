@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'djoser',
+
+    # Custom apps
+    'code_checker',
 ]
 
 MIDDLEWARE = [
@@ -85,6 +88,7 @@ DATABASES = {
         'USER': 'cowhite_codechecker',
         'NAME': 'cowhite_codechecker',
         'PASSWORD': 'cowhite_codechecker_pwd',
+        'HOST': 'localhost'
     }
 }
 
