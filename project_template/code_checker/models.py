@@ -28,13 +28,12 @@ class CodeCompile(DateTimeBase):
     test_cases = JSONField()
     user = models.ForeignKey(User)
 
-    def __unicode__(self):
-        return u"%s" % self.get_language_display()
-
-
-class CodeCompileResult(DateTimeBase):
-    code_compile = models.OneToOneField('CodeCompile')
+    # Result
     stderr = models.TextField(null=True, blank=True)
     stdout = models.TextField(null=True, blank=True)
-    time = models.DecimalField(decimal_places=4, max_digits=10)
-    is_correct = models.BooleanField()
+    time = models.DecimalField(
+        decimal_places=4, max_digits=10, null=True, blank=True)
+    is_correct = models.NullBooleanField()
+
+    def __unicode__(self):
+        return u"%s" % self.get_language_display()
